@@ -1,0 +1,58 @@
+
+
+<html>
+  <head>
+    <style>
+      #map
+      {
+        width: 100%;
+        height: 400px;
+        background-color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map" ng-controller="ListingsController" ng-init="find()"></div>
+
+    <script>
+      function initMap() {
+        var universityOfFlorida = {lat: 29.6436, lng: -82.3549};
+        //var myListingPosition = {{listing.coordinates}};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: universityOfFlorida
+        });
+        var marker = new google.maps.Marker({
+          //position: uluru,
+          position: /*listings.coordinates*/ universityOfFlorida,
+          map: map
+        });
+
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEnw0iMyYIqeO9XginyO--MOS2SAkFsy4&callback=initMap">
+    </script>
+
+
+  </body>
+
+</html>
+
+
+<!--
+
+
+<div id="map_canvas" ng-controller="ListingsController" ng-init = "find()">
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
+        <ui-gmap-markers models = "'listings'" coords="'coordinates'" icon="'icon'" idkey = "'_id'">
+          <ui-gmap-windows show = "show">
+            <div ng-non-bindable>
+              {{code}}
+            </div>
+          </ui-gmap-window>
+        </ui-gmap-markers>
+    </ui-gmap-google-map>
+</div>
+-->
